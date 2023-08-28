@@ -23,11 +23,12 @@ if st.button("提问"):
     responses = client.send_user_message(conversation=[user_input],
                                      conversation_id=conversation_id,
                                      language="Chinese",
-                                     should_stream_response=False)
+                                     should_stream_response=True)
 
     for response in responses:
       if response["event"] == "llm_response":
         text_response = response["text"]
+        st.write(text_response)  
       if response["event"] == "articles":
         text_url_response = response["articles"] 
 
@@ -38,14 +39,12 @@ if st.button("提问"):
         'ai_doctor': f"AI Doctor: {text_response}"
     })
 
-    for chat in chat_history:
-        st.text(chat['user'])
-        st.text(chat['ai_doctor'])
+    # for chat in chat_history:
+    #     st.text(chat['user'])
+    #     st.text(chat['ai_doctor'])
 
-    i = 0
     for articles in text_url_response:
-        i++
-        st.markdown(f"i: [{articles['title']}]({articles['url']})")
+        st.markdown(f"[{articles['title']}]({articles['url']})")
 
     print(chat_history)
 
