@@ -59,11 +59,9 @@ if st.button("提问"):
 st.markdown("""
 ### More details
 :fire: AiDoctor has a performance of `92% ` on the United States medical licensing sample exam 
-(USMLE, https://www.usmle.org/, dataset). You can find the answers that AiDoctor produced here: 
-USMLE Step 1, USMLE Step 2, USMLE Step 3. To the best of our knowledge, this is the highest performance 
-out of any question-answering system evaluated on the USMLE sample exam. 
+(USMLE, https://www.usmle.org/, dataset). The AiDoctor Currently in BETA Phase, If you have any questions,
+please :mailbox: Mail to zhenghong596gm@gmail.com
 """)
-st.markdown("""If you have any questions,please :mailbox: Mail to zhenghong596gm@gmail.com""")
 
 # 隐藏
 hide_streamlit_style = """<style>#MainMenu {visibility: hidden;} footer {visibility: hidden;}</style>"""
