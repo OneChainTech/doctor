@@ -29,46 +29,57 @@ user_input = st.text_area("\n\n", placeholder='请输入您的问题')
 
 # 提交按钮
 text_response = ''
-if st.button("提问"):
+is_empty = False
 
-    if text_response: 
-        responses = client.send_user_message(conversation=[chat_history[-1]['user'],
-                                                   text_response,
-                                                   user_input],
-                                     conversation_id=conversation_id,
-                                     language="Chinese",
-                                     should_stream_response=False)
+submit_button = st.button("提问")
+
+if submit_button:
+
+    if not text_input:
+        is_empty = True
+        st.error("文本框为空，请输入文本")
     else:
-        responses = client.send_user_message(conversation=[user_input],
-                                     conversation_id=conversation_id,
-                                     language="Chinese",
-                                     should_stream_response=True)
+        if text_response: 
+            responses = client.send_user_message(conversation=[chat_history[-1]['user'],
+                                                       text_response,
+                                                       user_input],
+                                         conversation_id=conversation_id,
+                                         language="Chinese",
+                                         should_stream_response=False)
+        else:
+            responses = client.send_user_message(conversation=[user_input],
+                                         conversation_id=conversation_id,
+                                         language="Chinese",
+                                         should_stream_response=True)
+        
+        output_container = st.empty()
+        
+        for response in responses:
+          if response["event"] == "llm_response":
+            text_response = response["text"]
+            output_container.write(f'{text_response}')
+          if response["event"] == "articles":
+            text_url_response = response["articles"] 
     
-    output_container = st.empty()
+        # 更新聊天历史
+        chat_history.append({
+            'user': {user_input},
+            'ai_doctor': {text_response}
+        })
     
-    for response in responses:
-      if response["event"] == "llm_response":
-        text_response = response["text"]
-        output_container.write(f'{text_response}')
-      if response["event"] == "articles":
-        text_url_response = response["articles"] 
+        for index, articles in enumerate(text_url_response):
+            st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
+    
+        print(chat_history)
 
-    # 更新聊天历史
-    chat_history.append({
-        'user': {user_input},
-        'ai_doctor': {text_response}
-    })
-
-    for index, articles in enumerate(text_url_response):
-        st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
-
-    print(chat_history)
-
+if is_empty:
+    submit_button = False
 
 # 模型说明
 st.markdown("""
 ### More details
-:fire: AiDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.The AiDoctor Currently in BETA Phase, If you have any questions,please :mailbox: Mail to zhenghong596gm@gmail.com
+:fire: AiDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.
+The AiDoctor Currently in BETA Phase, If you have any questions,please :mailbox: Mail to zhenghong596gm@gmail.com
 """)
 
 # 隐藏
