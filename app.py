@@ -14,7 +14,7 @@ if 'chat_history' not in st.session_state:
 
 # 标题图
 # st.title('AiDoctor')
-st.set_page_config(page_title='AiDoctor')
+st.set_page_config(page_title='iDoctor 人工智能医疗助理')
 
 st.image("deer.png", use_column_width=True)
     
