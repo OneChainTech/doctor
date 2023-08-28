@@ -47,10 +47,11 @@ if submit_button:
     else:
         # 历史消息
         checkbox_state = False
-        if len(st.session_state.chat_history) > 0: 
+        historylen = len(st.session_state.chat_history)
+        if historylen > 0: 
             
-            responses = client.send_user_message(conversation=[st.session_state.chat_history[0]['user'],
-                                                       st.session_state.chat_history[0]['ai_doctor'],
+            responses = client.send_user_message(conversation=[st.session_state.chat_history[historylen-1]['user'],
+                                                       st.session_state.chat_history[historylen-1]['ai_doctor'],
                                                        user_input],
                                          conversation_id=conversation_id,
                                          language="Chinese",
@@ -71,6 +72,8 @@ if submit_button:
             output_container.write(f'{text_response}')
           if response["event"] == "articles":
             text_url_response = response["articles"] 
+
+        st.write(responses)
     
         # 更新聊天历史
         st.session_state.chat_history.append({
