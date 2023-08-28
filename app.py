@@ -43,7 +43,7 @@ if st.button("提问"):
     index = 1
     for articles in text_url_response:
         st.markdown(f"{index} {articles['title']} {articles['url']}")
-        index ++
+        index = index + 1
 
     print(chat_history)
 
