@@ -14,7 +14,7 @@ chat_history = []
 # 标题图
 st.image("deer.png", use_column_width=True)
 
-# st.markdown("\n\n常见问题:")
+# st.markdown("\n\n常见问题(AI意见仅供参考，请只从医学专业人士那里获取建议):")
 styled_text = f"<span style='color: #FF7F50;'>常见问题:</span>"
 st.markdown(styled_text, unsafe_allow_html=True)
 
@@ -58,12 +58,12 @@ if st.button("提问"):
 # 模型说明
 st.markdown("""
 ### More details
-:fire: AiDoctor has a performance of 92% on the United States medical licensing sample exam 
+:fire: AiDoctor has a performance of `92% ` on the United States medical licensing sample exam 
 (USMLE, https://www.usmle.org/, dataset). You can find the answers that AiDoctor produced here: 
 USMLE Step 1, USMLE Step 2, USMLE Step 3. To the best of our knowledge, this is the highest performance 
 out of any question-answering system evaluated on the USMLE sample exam. 
 """)
-st.markdown(""":mailbox: Mail to zhenghong596gm@gmail.com""")
+st.markdown("""If you have any questions,please :mailbox: Mail to zhenghong596gm@gmail.com""")
 
 # 隐藏
 hide_streamlit_style = """<style>#MainMenu {visibility: hidden;} footer {visibility: hidden;}</style>"""
