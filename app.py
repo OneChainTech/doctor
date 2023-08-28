@@ -4,10 +4,10 @@ import streamlit as st
 chat_history = []
 
 # 标题图
-st.image("deer.png", caption="deer", use_column_width=True)
+st.image("deer.png", use_column_width=True)
 
 # 聊天对话界面
-st.title("AI医生与用户聊天界面")
+# st.title("AI医生与用户聊天界面")
 
 # 显示聊天历史
 for chat in chat_history:
@@ -32,7 +32,7 @@ if st.button("提交"):
     })
 
 # 三个参考问题
-st.title("参考问题")
-st.markdown("1. [关于感冒的问题案例](https://example.com/cold)")
-st.markdown("2. [关于鼻炎的问题案例](https://example.com/rhinitis)")
-st.markdown("3. [关于运动损伤的问题案例](https://example.com/sports_injury)")
+st.title("常见问题")
+st.markdown("1. 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
+st.markdown("2. 鼻炎患者在理疗过程中，有没有什么特别的注意事项或推荐的治疗方法？")
+st.markdown("3. 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
