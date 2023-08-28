@@ -40,8 +40,10 @@ if st.button("提问"):
         'ai_doctor': f"AI Doctor: {text_response}"
     })
 
-    for index, articles in text_url_response:
+    index = 1
+    for articles in text_url_response:
         st.markdown(f"{index} {articles['title']} {articles['url']}")
+        index ++
 
     print(chat_history)
 
