@@ -117,10 +117,3 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 hide_streamlit_style = """<style>.stApp [data-testid="stToolbar"]{ display:none;}</style>"""
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-hide_streamlit_style1 = """
-            <style>
-            #MainMenu {display:none;}
-            footer {display:none;}
-            </style>
-            """
-st.markdown(hide_streamlit_style1, unsafe_allow_html=True)
