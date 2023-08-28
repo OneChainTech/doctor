@@ -28,8 +28,16 @@ user_input = st.text_area("\n\n", placeholder='请输入您的问题')
 
 # 提交按钮
 if st.button("提问"):
-    
-    responses = client.send_user_message(conversation=[user_input],
+
+    if text_response: 
+        responses = client.send_user_message(conversation=[chat_history[-1]['user'],
+                                                   text_response,
+                                                   user_input],
+                                     conversation_id=conversation_id,
+                                     language="Chinese",
+                                     should_stream_response=False)
+    else:
+        responses = client.send_user_message(conversation=[user_input],
                                      conversation_id=conversation_id,
                                      language="Chinese",
                                      should_stream_response=True)
@@ -58,8 +66,9 @@ if st.button("提问"):
 # 模型说明
 st.markdown("""
 ### More details
-:fire: AiDoctor has a performance of `92% ` on the United States medical licensing sample exam 
-(USMLE, https://www.usmle.org/, dataset). The AiDoctor Currently in BETA Phase, If you have any questions,
+:fire: AiDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE, https://www.usmle.org/, dataset). 
+The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of ChatGPT. We obtained other systems' 
+performances (OpenEvidence, GPT4) from their associated papers and reports.The AiDoctor Currently in BETA Phase, If you have any questions,
 please :mailbox: Mail to zhenghong596gm@gmail.com
 """)
 
