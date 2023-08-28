@@ -30,23 +30,24 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 # 提交按钮
 text_response = ''
 is_empty = False
-is_follow = False
 
 submit_button = st.button("提问")
 
 if submit_button:
-
+    
     if not user_input:
         is_empty = True
         st.error("请填写问题后再提交")
     else:
-        if is_follow: 
+        # 历史消息
+        if not chat_history: 
             responses = client.send_user_message(conversation=[chat_history[-1]['user'],
-                                                       text_response,
+                                                       chat_history[-1]['ai_doctor'],
                                                        user_input],
                                          conversation_id=conversation_id,
                                          language="Chinese",
                                          should_stream_response=True)
+        # 新消息
         else:
             responses = client.send_user_message(conversation=[user_input],
                                          conversation_id=conversation_id,
@@ -76,6 +77,11 @@ if submit_button:
 
 if is_empty:
     submit_button = False
+
+clear_button = st.button("清理")
+
+if clear_button:
+    chat_history = []
 
 # 模型说明
 st.markdown("""
