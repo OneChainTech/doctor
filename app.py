@@ -43,7 +43,7 @@ if submit_button:
         st.error("请填写问题后再提交")
     else:
         # 历史消息
-        if not chat_history: 
+        if len(chat_history) == 0: 
             responses = client.send_user_message(conversation=[chat_history[-1]['user'],
                                                        chat_history[-1]['ai_doctor'],
                                                        user_input],
