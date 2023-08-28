@@ -13,13 +13,13 @@ if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
 
 # 标题图
-# st.title('AiDoctor')
+st.title("iDoctor")
 st.set_page_config(page_title='iDoctor 人工智能医疗信息服务助理')
 
 st.image("deer.png", use_column_width=True)
     
 # 输入问题聊天框
-user_input = st.text_area("输入您想了解的医疗问题", placeholder='')
+user_input = st.text_area("输入您想了解的医疗问题(请只从医学专业人士那里获取建议)", placeholder='疾病、症状或者寻求解决方案')
 # text = st.text_area('请输入文本', height=3)
 
 # checkbox_state = st.checkbox("清除历史数据")
