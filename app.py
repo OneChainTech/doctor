@@ -29,7 +29,7 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 
 checkbox_state = st.checkbox("保留历史数据", value=true)
 
-if !checkbox_state:
+if checkbox_state == False:
     chat_history = []
 
 # 提交按钮
