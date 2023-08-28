@@ -9,7 +9,8 @@ conversation_id = str(uuid.uuid4())
 client = MediSearchClient(api_key=api_key)
 
 # 初始化聊天历史
-st.session_state.chat_history = []
+if 'chat_history' not in st.session_state:
+    st.session_state.chat_history = []
 
 # 标题图
 # st.title('AiDoctor')
