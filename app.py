@@ -22,11 +22,6 @@ st.markdown(styled_text, unsafe_allow_html=True)
 st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
 st.markdown("- 鼻炎患者在理疗过程中，有没有什么特别的注意事项或推荐的治疗方法？")
 st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
-
-option = st.checkbox("清理历史数据")
-
-if option:
-     chat_history = []
     
 # 输入问题聊天框
 user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问题')
@@ -82,6 +77,9 @@ if submit_button:
 
 if is_empty:
     submit_button = False
+
+if st.checkbox("清理历史数据"):
+     chat_history = []
 
 # 模型说明
 st.markdown("""
