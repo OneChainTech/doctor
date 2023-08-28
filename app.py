@@ -32,7 +32,6 @@ styled_text = f"<span style='color: #FF7F50;'>常见问题:</span>"
 st.markdown(styled_text, unsafe_allow_html=True)
 
 st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
-st.markdown("- 鼻炎患者在理疗过程中，有没有什么特别的注意事项或推荐的治疗方法？")
 st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
     
 # 提交按钮
