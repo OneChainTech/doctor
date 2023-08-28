@@ -77,7 +77,8 @@ if submit_button:
             'user': user_input,
             'ai_doctor': text_response
         })
-        
+
+        st.write(st.session_state.chat_history)
         # if not text_url_response:
         for index, articles in enumerate(text_url_response):
             st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
