@@ -14,15 +14,9 @@ if 'chat_history' not in st.session_state:
 
 # 标题图
 # st.title('AiDoctor')
+st.set_page_config(page_title='AiDoctor')
+
 st.image("deer.png", use_column_width=True)
-
-# st.markdown("\n\n常见问题(AI意见仅供参考，请只从医学专业人士那里获取建议):")
-styled_text = f"<span style='color: #FF7F50;'>常见问题:</span>"
-st.markdown(styled_text, unsafe_allow_html=True)
-
-st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
-st.markdown("- 鼻炎患者在理疗过程中，有没有什么特别的注意事项或推荐的治疗方法？")
-st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
     
 # 输入问题聊天框
 user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问题')
@@ -32,6 +26,14 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 
 # if checkbox_state == True:
 #     st.session_state.chat_history = []
+
+# st.markdown("\n\n常见问题(AI意见仅供参考，请只从医学专业人士那里获取建议):")
+styled_text = f"<span style='color: #FF7F50;'>常见问题:</span>"
+st.markdown(styled_text, unsafe_allow_html=True)
+
+st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
+st.markdown("- 鼻炎患者在理疗过程中，有没有什么特别的注意事项或推荐的治疗方法？")
+st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
     
 # 提交按钮
 text_response = ''
