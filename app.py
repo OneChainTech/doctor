@@ -30,7 +30,7 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 checkbox_state = st.checkbox("清除历史数据")
 
 if checkbox_state == True:
-    chat_history = []
+    st.session_state.chat_history = []
     st.write('1')
     # st.write(chat_history)
 else:
