@@ -48,7 +48,7 @@ if st.button("提问"):
         'source': text_url_response
     })
 
-print(chat_history)
+    print(chat_history)
 
 # 三个参考问题
 st.write('常见问题')
