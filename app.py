@@ -96,8 +96,10 @@ if is_empty:
 # 模型说明
 st.markdown("""
 ### More details
-:fire: iDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of :robot: ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.
+:fire: iDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.
 """)
+
+st.image("product.png", use_column_width=True)
 
 # 隐藏
 hide_streamlit_style = """<style>#MainMenu {visibility: hidden;} footer {visibility: hidden;}</style>"""
