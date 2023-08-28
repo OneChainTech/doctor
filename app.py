@@ -48,6 +48,11 @@ if st.button("提问"):
         'source': text_url_response
     })
 
+    for chat in chat_history:
+    st.text(chat['user'])
+    st.text(chat['ai_doctor'])
+    st.markdown(f"答案出处: [{chat['title']}]({chat['url']})")
+
     print(chat_history)
 
 # 三个参考问题
