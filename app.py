@@ -30,7 +30,7 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 checkbox_state = st.checkbox("清除历史数据")
 
 if checkbox_state == True:
-    global chat_history = []
+    chat_history = []
     st.write('1')
     st.write(chat_history)
 else:
@@ -82,7 +82,7 @@ if submit_button:
             text_url_response = response["articles"] 
     
         # 更新聊天历史
-        global chat_history.append({
+        chat_history.append({
             'user': user_input,
             'ai_doctor': text_response
         })
