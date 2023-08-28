@@ -35,7 +35,7 @@ submit_button = st.button("提问")
 
 if submit_button:
 
-    if not text_input:
+    if not user_input:
         is_empty = True
         st.error("文本框为空，请输入文本")
     else:
