@@ -9,7 +9,7 @@ conversation_id = str(uuid.uuid4())
 client = MediSearchClient(api_key=api_key)
 
 # 初始化聊天历史
-chat_history = []
+st.session_state.chat_history = []
 
 # 标题图
 # st.title('AiDoctor')
@@ -32,10 +32,10 @@ checkbox_state = st.checkbox("清除历史数据")
 if checkbox_state == True:
     chat_history = []
     st.write('1')
-    st.write(chat_history)
+    # st.write(chat_history)
 else:
     st.write('2')
-    st.write(chat_history)
+    # st.write(chat_history)
     
 
 # 提交按钮
@@ -51,12 +51,12 @@ if submit_button:
         st.error("请填写问题后再提交")
     else:
         st.write('7')
-        st.write(len(chat_history))
+        # st.write(len(chat_history))
         # 历史消息
         checkbox_state = False
-        if len(chat_history) != 0: 
+        if len(st.session_state.chat_history) != 0: 
             st.write('3')
-            st.write(chat_history)
+            # st.write(chat_history)
             responses = client.send_user_message(conversation=[chat_history[-1]['user'],
                                                        chat_history[-1]['ai_doctor'],
                                                        user_input],
@@ -66,7 +66,7 @@ if submit_button:
         # 新消息
         else:
             st.write('4')
-            st.write(chat_history)
+            # st.write(chat_history)
             responses = client.send_user_message(conversation=[user_input],
                                          conversation_id=conversation_id,
                                          language="Chinese",
@@ -82,14 +82,14 @@ if submit_button:
             text_url_response = response["articles"] 
     
         # 更新聊天历史
-        chat_history.append({
+        st.session_state.chat_history.append({
             'user': user_input,
             'ai_doctor': text_response
         })
 
-        st.write('5')
-        st.write(chat_history)
-        st.write(chat_history[-1]['user'])
+        # st.write('5')
+        # st.write(chat_history)
+        # st.write(chat_history[-1]['user'])
         
         # if not text_url_response:
         for index, articles in enumerate(text_url_response):
