@@ -48,6 +48,8 @@ if st.button("提问"):
         'source': text_url_response
     })
 
+print(chat_history)
+
 # 三个参考问题
 st.write('常见问题')
 st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
