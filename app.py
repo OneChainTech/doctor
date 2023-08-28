@@ -14,6 +14,7 @@ if 'chat_history' not in st.session_state:
 
 # 标题图
 st.set_page_config(page_title='iDoctor 人工智能医疗信息服务助理')
+st.set_page_config(page_icon=None)
 
 st.markdown("""
     <style>
