@@ -13,7 +13,7 @@ chat_history = []
 
 # 标题图
 # st.title('AiDoctor')
-st.image("deer.png", use_column_width=True)
+# st.image("deer.png", use_column_width=True)
 
 # st.markdown("\n\n常见问题(AI意见仅供参考，请只从医学专业人士那里获取建议):")
 styled_text = f"<span style='color: #FF7F50;'>常见问题:</span>"
@@ -30,9 +30,8 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 # 提交按钮
 text_response = ''
 is_empty = False
-col1, col2 = st.columns(2)
 
-submit_button = col1.button("提问")
+submit_button = st.button("提问")
 
 if submit_button:
     
@@ -79,7 +78,7 @@ if submit_button:
 if is_empty:
     submit_button = False
 
-clear_button = col2.button("清理")
+clear_button = st.button("清理")
 
 if clear_button:
     chat_history = []
