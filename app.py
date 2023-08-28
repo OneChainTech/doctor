@@ -40,51 +40,53 @@ is_empty = False
 submit_button = st.button("提问")
 
 if submit_button:
+    with st.spinner('请稍等...'):
     
-    if not user_input:
-        is_empty = True
-        st.error("请填写问题后再提交")
-    else:
-        # 历史消息
-        checkbox_state = False
-        historylen = len(st.session_state.chat_history)
-        if historylen > 0: 
-            
-            responses = client.send_user_message(conversation=[st.session_state.chat_history[historylen-1]['user'],
-                                                       st.session_state.chat_history[historylen-1]['ai_doctor'],
-                                                       user_input],
-                                         conversation_id=conversation_id,
-                                         language="Chinese",
-                                         should_stream_response=True)
-        # 新消息
+        if not user_input:
+            is_empty = True
+            st.error("请填写问题后再提交")
         else:
+            # 历史消息
+            checkbox_state = False
+            historylen = len(st.session_state.chat_history)
+            if historylen > 0: 
+                
+                responses = client.send_user_message(conversation=[st.session_state.chat_history[historylen-1]['user'],
+                                                           st.session_state.chat_history[historylen-1]['ai_doctor'],
+                                                           user_input],
+                                             conversation_id=conversation_id,
+                                             language="Chinese",
+                                             should_stream_response=True)
+            # 新消息
+            else:
+                
+                responses = client.send_user_message(conversation=[user_input],
+                                             conversation_id=conversation_id,
+                                             language="Chinese",
+                                             should_stream_response=True)
             
-            responses = client.send_user_message(conversation=[user_input],
-                                         conversation_id=conversation_id,
-                                         language="Chinese",
-                                         should_stream_response=True)
+            output_container = st.empty()
+            
+            for response in responses:
+              if response["event"] == "llm_response":
+                text_response = response["text"]
+                output_container.write(f'{text_response}')
+              if response["event"] == "articles":
+                text_url_response = response["articles"] 
         
-        output_container = st.empty()
-        
-        for response in responses:
-          if response["event"] == "llm_response":
-            text_response = response["text"]
-            output_container.write(f'{text_response}')
-          if response["event"] == "articles":
-            text_url_response = response["articles"] 
+            # 更新聊天历史
+            st.session_state.chat_history.append({
+                'user': user_input,
+                'ai_doctor': text_response
+            })
     
-        # 更新聊天历史
-        st.session_state.chat_history.append({
-            'user': user_input,
-            'ai_doctor': text_response
-        })
-
-        st.write(st.session_state.chat_history)
-        # if not text_url_response:
-        for index, articles in enumerate(text_url_response):
-            st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
-        
-        # print(chat_history)
+            st.write(st.session_state.chat_history)
+            st.write(conversation_id)
+            # if not text_url_response:
+            for index, articles in enumerate(text_url_response):
+                st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
+            
+            # print(chat_history)
 
 if is_empty:
     submit_button = False
