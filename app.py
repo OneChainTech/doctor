@@ -51,14 +51,14 @@ if submit_button:
         st.error("请填写问题后再提交")
     else:
         st.write('7')
-        # st.write(len(chat_history))
+        st.write(st.session_state.chat_history)
         # 历史消息
         checkbox_state = False
-        if len(st.session_state.chat_history) != 0: 
+        if len(st.session_state.chat_history) > 0: 
             st.write('3')
             # st.write(chat_history)
-            responses = client.send_user_message(conversation=[chat_history[-1]['user'],
-                                                       chat_history[-1]['ai_doctor'],
+            responses = client.send_user_message(conversation=[st.session_state.chat_history[-1]['user'],
+                                                       st.session_state.chat_history[-1]['ai_doctor'],
                                                        user_input],
                                          conversation_id=conversation_id,
                                          language="Chinese",
