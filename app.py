@@ -29,7 +29,6 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 
 if st.checkbox("清理数据"):
     chat_history = []
-    user_input = ""
 
 # 提交按钮
 text_response = ''
