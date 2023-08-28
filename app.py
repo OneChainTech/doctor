@@ -15,7 +15,7 @@ chat_history = []
 st.image("deer.png", use_column_width=True)
 
 # st.markdown("\n\n常见问题:")
-styled_text = f"<span style='color: #0074D9; font-size: 24px;'>常见问题</span>"
+styled_text = f"<span style='color: #FF7F50; font-size: 22px;'>常见问题:</span>"
 st.markdown(styled_text, unsafe_allow_html=True)
 
 st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
