@@ -32,13 +32,7 @@ checkbox_state = st.checkbox("清除历史数据")
 
 if checkbox_state == True:
     st.session_state.chat_history = []
-    st.write('1')
-    # st.write(chat_history)
-else:
-    st.write('2')
-    # st.write(chat_history)
     
-
 # 提交按钮
 text_response = ''
 is_empty = False
@@ -51,13 +45,10 @@ if submit_button:
         is_empty = True
         st.error("请填写问题后再提交")
     else:
-        st.write('7')
-        st.write(st.session_state.chat_history)
         # 历史消息
         checkbox_state = False
         if len(st.session_state.chat_history) > 0: 
-            st.write('3')
-            # st.write(chat_history)
+            
             responses = client.send_user_message(conversation=[st.session_state.chat_history[-1]['user'],
                                                        st.session_state.chat_history[-1]['ai_doctor'],
                                                        user_input],
@@ -66,8 +57,7 @@ if submit_button:
                                          should_stream_response=True)
         # 新消息
         else:
-            st.write('4')
-            # st.write(chat_history)
+            
             responses = client.send_user_message(conversation=[user_input],
                                          conversation_id=conversation_id,
                                          language="Chinese",
@@ -87,10 +77,6 @@ if submit_button:
             'user': user_input,
             'ai_doctor': text_response
         })
-
-        # st.write('5')
-        st.write(st.session_state.chat_history)
-        # st.write(chat_history[-1]['user'])
         
         # if not text_url_response:
         for index, articles in enumerate(text_url_response):
