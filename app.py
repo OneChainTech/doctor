@@ -27,10 +27,10 @@ st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪�
 user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问题')
 # text = st.text_area('请输入文本', height=3)
 
-checkbox_state = st.checkbox("保留历史数据", value=True)
+checkbox_state = st.checkbox("清除历史数据")
 
-if checkbox_state == False:
-    chat_history = []
+if checkbox_state == True:
+    global chat_history = []
     st.write('1')
     st.write(chat_history)
 else:
@@ -53,6 +53,7 @@ if submit_button:
         st.write('7')
         st.write(len(chat_history))
         # 历史消息
+        checkbox_state = False
         if len(chat_history) != 0: 
             st.write('3')
             st.write(chat_history)
@@ -81,7 +82,7 @@ if submit_button:
             text_url_response = response["articles"] 
     
         # 更新聊天历史
-        chat_history.append({
+        global chat_history.append({
             'user': user_input,
             'ai_doctor': text_response
         })
