@@ -49,9 +49,9 @@ if st.button("提问"):
     })
 
     for chat in chat_history:
-    st.text(chat['user'])
-    st.text(chat['ai_doctor'])
-    st.markdown(f"答案出处: [{chat['title']}]({chat['url']})")
+        st.text(chat['user'])
+        st.text(chat['ai_doctor'])
+        st.markdown(f"答案出处: [{chat['title']}]({chat['url']})")
 
     print(chat_history)
 
