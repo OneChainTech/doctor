@@ -12,10 +12,15 @@ client = MediSearchClient(api_key=api_key)
 chat_history = []
 
 # 标题图
-st.image("deer.png", use_column_width=True)
+st.image("deer.png", use_column_width=True
+
+st.write('常见问题')
+st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
+st.markdown("- 鼻炎患者在理疗过程中，有没有什么特别的注意事项或推荐的治疗方法？")
+st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
 
 # 输入问题聊天框
-user_input = st.text_input("请输入您的问题：")
+user_input = st.text_input("\n\n请输入您的问题：")
 
 # 提交按钮
 if st.button("提问"):
@@ -42,13 +47,7 @@ if st.button("提问"):
 
     index = 1
     for articles in text_url_response:
-        st.markdown(f"{index} {articles['title']} {articles['url']}")
+        st.markdown(f"{index}. {articles['title']} {articles['url']}")
         index = index + 1
 
     print(chat_history)
-
-# 三个参考问题
-st.write('常见问题')
-st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
-st.markdown("- 鼻炎患者在理疗过程中，有没有什么特别的注意事项或推荐的治疗方法？")
-st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
