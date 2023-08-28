@@ -50,6 +50,8 @@ if submit_button:
         is_empty = True
         st.error("请填写问题后再提交")
     else:
+        st.write('7')
+        st.write(len(chat_history))
         # 历史消息
         if len(chat_history) != 0: 
             st.write('3')
