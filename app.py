@@ -52,6 +52,8 @@ if submit_button:
     else:
         # 历史消息
         if len(chat_history) != 0: 
+            st.write('3')
+            st.write(chat_history)
             responses = client.send_user_message(conversation=[chat_history[-1]['user'],
                                                        chat_history[-1]['ai_doctor'],
                                                        user_input],
@@ -60,6 +62,8 @@ if submit_button:
                                          should_stream_response=True)
         # 新消息
         else:
+            st.write('4')
+            st.write(chat_history)
             responses = client.send_user_message(conversation=[user_input],
                                          conversation_id=conversation_id,
                                          language="Chinese",
