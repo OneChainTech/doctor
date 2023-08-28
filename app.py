@@ -96,7 +96,6 @@ if is_empty:
 st.markdown("""
 ### More details
 :fire: iDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of :robot: ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.
-The iDoctor Currently in BETA Phase, If you have any questions,please :mailbox: Mail to zhenghong596gm@gmail.com
 """)
 
 # 隐藏
