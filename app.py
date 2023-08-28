@@ -73,7 +73,7 @@ if submit_button:
           if response["event"] == "articles":
             text_url_response = response["articles"] 
 
-        st.write(responses)
+        st.write(responses.text)
     
         # 更新聊天历史
         st.session_state.chat_history.append({
