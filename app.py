@@ -12,6 +12,7 @@ client = MediSearchClient(api_key=api_key)
 chat_history = []
 
 # 标题图
+st.title('AiDoctor')
 st.image("deer.png", use_column_width=True)
 
 # st.markdown("\n\n常见问题(AI意见仅供参考，请只从医学专业人士那里获取建议):")
