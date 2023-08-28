@@ -25,13 +25,12 @@ if st.button("提问"):
                                      language="Chinese",
                                      should_stream_response=True)
     
-    output_container = st.beta_container()
+    output_container = st.empty()
     
     for response in responses:
       if response["event"] == "llm_response":
         text_response = response["text"]
-        with output_container:
-            st.write(f'{text_response}')
+        output_container.write(f'{text_response}')
       if response["event"] == "articles":
         text_url_response = response["articles"] 
 
