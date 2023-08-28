@@ -12,7 +12,7 @@ client = MediSearchClient(api_key=api_key)
 chat_history = []
 
 # 标题图
-st.title('AiDoctor')
+# st.title('AiDoctor')
 st.image("deer.png", use_column_width=True)
 
 # st.markdown("\n\n常见问题(AI意见仅供参考，请只从医学专业人士那里获取建议):")
@@ -37,7 +37,7 @@ if submit_button:
 
     if not user_input:
         is_empty = True
-        st.error("文本框为空，请输入文本")
+        st.error("请填写问题后再提交")
     else:
         if text_response: 
             responses = client.send_user_message(conversation=[chat_history[-1]['user'],
@@ -78,8 +78,8 @@ if is_empty:
 # 模型说明
 st.markdown("""
 ### More details
-:fire: AiDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.
-\nThe AiDoctor Currently in BETA Phase, If you have any questions,please :mailbox: Mail to zhenghong596gm@gmail.com
+:fire: iDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.
+The iDoctor Currently in BETA Phase, If you have any questions,please :mailbox: Mail to zhenghong596gm@gmail.com
 """)
 
 # 隐藏
