@@ -28,7 +28,7 @@ st.title("iDoctor(Beta)")
 st.image("deer.png", use_column_width=True)
     
 # 输入问题聊天框
-user_input = st.text_area("输入您想了解的医疗问题(请只从医学专业人士那里获取建议)", placeholder='疾病、症状或者寻求解决方案')
+user_input = st.text_area("您想了解的医疗问题 ( 请只从医学专业人士那里获取建议！ )", placeholder='疾病、症状或者寻求解决方案')
 # text = st.text_area('请输入文本', height=3)
 
 # checkbox_state = st.checkbox("清除历史数据")
@@ -41,7 +41,7 @@ styled_text = f"<span style='color: #FF7F50;'>常见问题:</span>"
 st.markdown(styled_text, unsafe_allow_html=True)
 
 st.markdown("- 对于感冒症状，有理疗方法可缓解鼻塞和喉咙痛？")
-st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
+# st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
     
 # 提交按钮
 text_response = ''
