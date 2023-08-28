@@ -27,7 +27,9 @@ st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪�
 user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问题')
 # text = st.text_area('请输入文本', height=3)
 
-if st.checkbox("清理历史数据"):
+checkbox_state = st.checkbox("保留历史数据", value=true)
+
+if !checkbox_state:
     chat_history = []
 
 # 提交按钮
@@ -84,7 +86,7 @@ if is_empty:
 # 模型说明
 st.markdown("""
 ### More details
-:fire: iDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.
+:fire: iDoctor has a performance of`92%`on the United States medical licensing sample exam (USMLE).The 2022 USMLE sample benchmark was first used to evaluate the medical question answering ability of :robot: ChatGPT. We obtained other systems' performances (OpenEvidence, GPT4) from their associated papers and reports.
 The iDoctor Currently in BETA Phase, If you have any questions,please :mailbox: Mail to zhenghong596gm@gmail.com
 """)
 
