@@ -49,8 +49,8 @@ if submit_button:
         checkbox_state = False
         if len(st.session_state.chat_history) > 0: 
             
-            responses = client.send_user_message(conversation=[st.session_state.chat_history[-1]['user'],
-                                                       st.session_state.chat_history[-1]['ai_doctor'],
+            responses = client.send_user_message(conversation=[st.session_state.chat_history[0]['user'],
+                                                       st.session_state.chat_history[0]['ai_doctor'],
                                                        user_input],
                                          conversation_id=conversation_id,
                                          language="Chinese",
