@@ -30,6 +30,7 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 # 提交按钮
 text_response = ''
 is_empty = False
+is_follow = False
 
 submit_button = st.button("提问")
 
@@ -39,7 +40,7 @@ if submit_button:
         is_empty = True
         st.error("请填写问题后再提交")
     else:
-        if text_response: 
+        if is_follow: 
             responses = client.send_user_message(conversation=[chat_history[-1]['user'],
                                                        text_response,
                                                        user_input],
@@ -67,9 +68,9 @@ if submit_button:
             'ai_doctor': {text_response}
         })
 
-        if not text_url_response:
-            for index, articles in enumerate(text_url_response):
-                st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
+        # if not text_url_response:
+        for index, articles in enumerate(text_url_response):
+            st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
         
         print(chat_history)
 
