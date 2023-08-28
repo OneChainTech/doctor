@@ -13,7 +13,7 @@ chat_history = []
 
 # 标题图
 # st.title('AiDoctor')
-# st.image("deer.png", use_column_width=True)
+st.image("deer.png", use_column_width=True)
 
 # st.markdown("\n\n常见问题(AI意见仅供参考，请只从医学专业人士那里获取建议):")
 styled_text = f"<span style='color: #FF7F50;'>常见问题:</span>"
@@ -31,7 +31,7 @@ checkbox_state = st.checkbox("保留历史数据", value=True)
 
 if checkbox_state == False:
     chat_history = []
-    st.write(‘1’)
+    st.write('1')
     st.write(chat_history)
 else:
     st.write(‘2’)
