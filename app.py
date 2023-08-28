@@ -27,6 +27,7 @@ user_input = st.text_area("\n\n", placeholder='请输入您的问题')
 # text = st.text_area('请输入文本', height=3)
 
 # 提交按钮
+text_response = ''
 if st.button("提问"):
 
     if text_response: 
