@@ -30,8 +30,9 @@ user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问
 # 提交按钮
 text_response = ''
 is_empty = False
+col1, col2 = st.columns(2)
 
-submit_button = st.button("提问")
+submit_button = col1.button("提问")
 
 if submit_button:
     
@@ -78,7 +79,7 @@ if submit_button:
 if is_empty:
     submit_button = False
 
-clear_button = st.button("清理")
+clear_button = col2.button("清理")
 
 if clear_button:
     chat_history = []
