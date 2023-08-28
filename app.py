@@ -80,8 +80,8 @@ if submit_button:
     
         # 更新聊天历史
         chat_history.append({
-            'user': {user_input},
-            'ai_doctor': {text_response}
+            'user': user_input,
+            'ai_doctor': text_response
         })
 
         st.write('5')
