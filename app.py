@@ -1,4 +1,12 @@
 import streamlit as st
+import json
+import uuid
+
+from medisearch_client import MediSearchClient
+
+api_key = "gx4XXBhE7Zrga682gmEm"
+conversation_id = str(uuid.uuid4())
+client = MediSearchClient(api_key=api_key)
 
 # 初始化聊天历史
 chat_history = []
@@ -10,22 +18,34 @@ st.image("deer.png", use_column_width=True)
 for chat in chat_history:
     st.text(chat['user'])
     st.text(chat['ai_doctor'])
-    st.markdown(f"答案出处: [{chat['source']}]({chat['source']})")
+    st.markdown(f"答案出处: [{chat['title']}]({chat['url']})")
 
 # 输入问题聊天框
 user_input = st.text_input("请输入您的问题：")
 
 # 提交按钮
-if st.button("提交"):
-    # AI医生的回答（模拟）
-    ai_answer = "这是AI医生的回答。"
-    source_url = "https://example.com/source"
+if st.button("提问"):
+    # # AI医生的回答（模拟）
+    # ai_answer = "这是AI医生的回答。"
+    # source_url = "https://example.com/source"
+    
+    responses = client.send_user_message(conversation=[user_input],
+                                     conversation_id=conversation_id,
+                                     language="Chinese",
+                                     should_stream_response=False)
+
+    for response in responses:
+      if response["event"] == "llm_response":
+        text_response = response["text"]
+      if response["event"] == "articles":
+        text_url_response = response["articles"] 
+
 
     # 更新聊天历史
     chat_history.append({
         'user': f"用户: {user_input}",
-        'ai_doctor': f"AI医生: {ai_answer}",
-        'source': source_url
+        'ai_doctor': f"AI医生: {text_response}",
+        'source': text_url_response
     })
 
 # 三个参考问题
