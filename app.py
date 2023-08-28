@@ -12,9 +12,9 @@ client = MediSearchClient(api_key=api_key)
 chat_history = []
 
 # 标题图
-st.image("deer.png", use_column_width=True
+st.image("deer.png", use_column_width=True)
 
-st.write('常见问题')
+st.write("常见问题")
 st.markdown("- 对于感冒症状，有哪些理疗方法可以缓解鼻塞和喉咙痛？")
 st.markdown("- 鼻炎患者在理疗过程中，有没有什么特别的注意事项或推荐的治疗方法？")
 st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
@@ -41,8 +41,8 @@ if st.button("提问"):
 
     # 更新聊天历史
     chat_history.append({
-        'user': f"User: {user_input}",
-        'ai_doctor': f"AI Doctor: {text_response}"
+        'user': {user_input},
+        'ai_doctor': {text_response}
     })
 
     index = 1
