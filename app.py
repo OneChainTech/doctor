@@ -34,7 +34,7 @@ if checkbox_state == False:
     st.write('1')
     st.write(chat_history)
 else:
-    st.write(‘2’)
+    st.write('2')
     st.write(chat_history)
     
 
