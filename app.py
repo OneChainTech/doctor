@@ -24,14 +24,16 @@ if st.button("提问"):
                                      conversation_id=conversation_id,
                                      language="Chinese",
                                      should_stream_response=True)
-
+    
+    output_container = st.beta_container()
+    
     for response in responses:
       if response["event"] == "llm_response":
         text_response = response["text"]
-        st.write(text_response)  
+        with output_container:
+            st.write(f'{text_response}')
       if response["event"] == "articles":
         text_url_response = response["articles"] 
-
 
     # 更新聊天历史
     chat_history.append({
@@ -39,12 +41,8 @@ if st.button("提问"):
         'ai_doctor': f"AI Doctor: {text_response}"
     })
 
-    # for chat in chat_history:
-    #     st.text(chat['user'])
-    #     st.text(chat['ai_doctor'])
-
-    for articles in text_url_response:
-        st.markdown(f"[{articles['title']}]({articles['url']})")
+    for index, articles in text_url_response:
+        st.markdown(f"{index} {articles['title']} {articles['url']}")
 
     print(chat_history)
 
