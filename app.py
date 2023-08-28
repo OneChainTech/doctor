@@ -27,8 +27,9 @@ st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪�
 user_input = st.text_area("\n\n", placeholder='请输入您想了解的医疗问题')
 # text = st.text_area('请输入文本', height=3)
 
-if st.checkbox("清理历史数据"):
-     chat_history = []
+if st.checkbox("清理数据"):
+    chat_history = []
+    user_input = ""
 
 # 提交按钮
 text_response = ''
