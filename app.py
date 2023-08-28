@@ -88,7 +88,7 @@ if submit_button:
         })
 
         # st.write('5')
-        # st.write(chat_history)
+        st.write(st.session_state.chat_history)
         # st.write(chat_history[-1]['user'])
         
         # if not text_url_response:
