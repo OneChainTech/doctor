@@ -31,6 +31,12 @@ checkbox_state = st.checkbox("保留历史数据", value=True)
 
 if checkbox_state == False:
     chat_history = []
+    st.write(‘1’)
+    st.write(chat_history)
+else:
+    st.write(‘2’)
+    st.write(chat_history)
+    
 
 # 提交按钮
 text_response = ''
