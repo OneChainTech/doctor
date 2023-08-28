@@ -4,7 +4,7 @@ import streamlit as st
 chat_history = []
 
 # 标题图
-st.image("deer.png", height=200)
+st.image("deer.png", use_column_width=True)
 
 # 显示聊天历史
 for chat in chat_history:
