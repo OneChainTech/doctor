@@ -45,7 +45,7 @@ if submit_button:
                                                        user_input],
                                          conversation_id=conversation_id,
                                          language="Chinese",
-                                         should_stream_response=False)
+                                         should_stream_response=True)
         else:
             responses = client.send_user_message(conversation=[user_input],
                                          conversation_id=conversation_id,
@@ -66,10 +66,11 @@ if submit_button:
             'user': {user_input},
             'ai_doctor': {text_response}
         })
-    
-        for index, articles in enumerate(text_url_response):
-            st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
-    
+
+        if not text_url_response:
+            for index, articles in enumerate(text_url_response):
+                st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
+        
         print(chat_history)
 
 if is_empty:
