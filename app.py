@@ -84,11 +84,15 @@ if submit_button:
             'ai_doctor': {text_response}
         })
 
+        st.write('5')
+        st.write(chat_history)
+        st.write(chat_history[-1]['user'])
+        
         # if not text_url_response:
         for index, articles in enumerate(text_url_response):
             st.markdown(f"[{index+1}] {articles['title']} {articles['url']}")
         
-        print(chat_history)
+        # print(chat_history)
 
 if is_empty:
     submit_button = False
