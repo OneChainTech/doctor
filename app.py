@@ -4,7 +4,8 @@ import uuid
 
 from medisearch_client import MediSearchClient
 
-api_key = "gx4XXBhE7Zrga682gmEm"
+# api_key = "gx4XXBhE7Zrga682gmEm"
+api_key = "0183fcfa-93b9-425f-b6af-5d0d3525b8cb"
 conversation_id = str(uuid.uuid4())
 client = MediSearchClient(api_key=api_key)
 
