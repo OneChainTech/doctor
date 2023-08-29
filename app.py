@@ -41,7 +41,7 @@ user_input = st.text_area("您想了解的医疗问题 ( 请只从医学专业�
 styled_text = f"<span style='color: #FF7F50;'>常见问题:</span>"
 st.markdown(styled_text, unsafe_allow_html=True)
 
-# st.markdown("- 对于感冒症状，有理疗方法可缓解鼻塞和喉咙痛？")
+st.markdown("- 对于感冒症状，有理疗方法可缓解鼻塞和喉咙痛？")
 st.markdown("- 如何通过理疗来加速运动损伤的康复过程？有哪些常用的理疗方法可以减轻疼痛和促进恢复？")
     
 # 提交按钮
@@ -117,14 +117,3 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 hide_streamlit_style = """<style>.stApp [data-testid="stToolbar"]{ display:none;}</style>"""
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-st.markdown(
-    """
-    <style>
-    [data-baseweb="icon-button"] {
-        display: none !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-
